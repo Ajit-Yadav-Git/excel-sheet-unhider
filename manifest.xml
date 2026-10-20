@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+  <Id>6f1b7c52-3a0e-4f6b-9a55-2d1f8c0b7e11</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Arcitech</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Sheet Unhider"/>
+  <Description DefaultValue="Unhide hidden and very hidden worksheets (Python via Pyodide)."/>
+  <IconUrl DefaultValue="https://localhost:3000/icon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/icon.png"/>
+  <SupportUrl DefaultValue="https://arcitech.ai"/>
+  <Hosts><Host Name="Workbook"/></Hosts>
+  <DefaultSettings><SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/></DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.1"><bt:Set Name="SharedRuntime" MinVersion="1.1"/></bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="Workbook">
+          <Runtimes>
+            <!-- Long-lived shared runtime lets the pane load automatically when a workbook opens -->
+            <Runtime resid="PaneUrl" lifetime="long"/>
+          </Runtimes>
+          <DesktopFormFactor>
+            <GetStarted>
+              <Title resid="Title"/>
+              <Description resid="Desc"/>
+              <LearnMoreUrl resid="PaneUrl"/>
+            </GetStarted>
+            <FunctionFile resid="PaneUrl"/>
+            <ExtensionPoint xsi:type="PrimaryCommandSurface">
+              <OfficeTab id="TabHome">
+                <Group id="Grp">
+                  <Label resid="Title"/>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon"/>
+                    <bt:Image size="32" resid="Icon"/>
+                    <bt:Image size="80" resid="Icon"/>
+                  </Icon>
+                  <Control xsi:type="Button" id="OpenPane">
+                    <Label resid="Title"/>
+                    <Supertip><Title resid="Title"/><Description resid="Desc"/></Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon"/>
+                      <bt:Image size="32" resid="Icon"/>
+                      <bt:Image size="80" resid="Icon"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <TaskpaneId>Pane</TaskpaneId>
+                      <SourceLocation resid="PaneUrl"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images><bt:Image id="Icon" DefaultValue="https://localhost:3000/icon.png"/></bt:Images>
+        <bt:Urls><bt:Url id="PaneUrl" DefaultValue="https://localhost:3000/taskpane.html"/></bt:Urls>
+        <bt:ShortStrings><bt:String id="Title" DefaultValue="Sheet Unhider"/></bt:ShortStrings>
+        <bt:LongStrings><bt:String id="Desc" DefaultValue="Unhide hidden and very hidden sheets."/></bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

@@ -1,0 +1,17 @@
+{
+  "name": "excel-sheet-unhider",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "certs": "office-addin-dev-certs install",
+    "serve": "node server.js",
+    "sideload": "office-addin-debugging start manifest.xml desktop --no-debug",
+    "stop": "office-addin-debugging stop manifest.xml",
+    "validate": "office-addin-manifest validate manifest.xml"
+  },
+  "devDependencies": {
+    "office-addin-debugging": "^5.0.0",
+    "office-addin-dev-certs": "^1.13.0",
+    "office-addin-manifest": "^1.13.0"
+  }
+}

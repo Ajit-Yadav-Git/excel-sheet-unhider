@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sheet Unhider</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; margin: 12px; }
+    button { padding: 8px 12px; }
+    #log { white-space: pre-wrap; font-size: 12px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h3>Sheet Unhider</h3>
+  <button id="run" disabled>Run again</button>
+  <div id="log">Starting...</div>
+  <script src="taskpane.js"></script>
+</body>
+</html>
